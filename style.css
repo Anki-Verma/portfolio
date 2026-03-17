@@ -115,6 +115,8 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    transition: transform var(--transition-normal), filter var(--transition-normal);
+    will-change: transform, filter;
 }
 
 .section-title::after {
@@ -126,6 +128,24 @@ h1, h2, h3, h4, h5, h6 {
     height: 4px;
     background: var(--gradient-primary);
     border-radius: 2px;
+    transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow var(--transition-normal);
+    will-change: width;
+}
+
+/* Subtle prompt when hovering anywhere in the section */
+.section:hover .section-title::after {
+    width: 100px;
+}
+
+/* Full effect when directly hovering the section title */
+.section .section-title:hover {
+    transform: translateY(-2px);
+    filter: drop-shadow(0 10px 15px var(--accent-glow));
+}
+
+.section:hover .section-title:hover::after {
+    width: 100%;
+    box-shadow: 0 0 15px var(--accent-glow);
 }
 
 a {
