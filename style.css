@@ -727,6 +727,53 @@ nav {
 .interest-badge i {
     color: var(--accent-primary);
     font-size: 1.4rem;
+    transition: transform 0.3s ease;
+}
+
+/* Mountain Biking Animation */
+@keyframes bikeRide {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-4px) rotate(-10deg); }
+}
+.badge-biking:hover i {
+    animation: bikeRide 0.3s ease-in-out infinite alternate;
+}
+
+/* Photography Flash Animation */
+.camera-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.flash {
+    position: absolute;
+    top: 5px;
+    right: 2px;
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+@keyframes clickFlash {
+    0%, 15% { opacity: 0; transform: scale(0.5); box-shadow: 0 0 0 rgba(255,255,255,0); }
+    20% { opacity: 1; transform: scale(3); box-shadow: 0 0 20px 10px rgba(255,255,255,1); }
+    30%, 100% { opacity: 0; transform: scale(0.5); box-shadow: 0 0 0 rgba(255,255,255,0); }
+}
+.badge-photography:hover .flash {
+    animation: clickFlash 1.5s infinite;
+}
+
+/* Cultural Engagement Animation */
+@keyframes revolvePersons {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.badge-culture:hover i {
+    animation: revolvePersons 2s linear infinite;
 }
 
 /* Footer Section */
