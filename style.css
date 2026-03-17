@@ -530,6 +530,12 @@ nav {
     overflow: hidden;
 }
 
+@keyframes iconGradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 .skill-icon {
     font-size: 2.5rem;
     color: var(--accent-primary);
@@ -547,9 +553,12 @@ nav {
 
 .skill-card:hover .skill-icon i {
     transform: rotate(360deg) scale(1.2);
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, #0D9488, #3B82F6, #8B5CF6, #0D9488);
+    background-size: 300% 300%;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: iconGradientShift 2s ease infinite;
 }
 
 .skill-card h3 {
@@ -651,7 +660,7 @@ nav {
 /* Achievements Section */
 .achievements-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
 }
 
@@ -667,9 +676,12 @@ nav {
 
 .achievement-card:hover .achievement-icon i {
     transform: rotate(360deg) scale(1.2);
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, #0D9488, #3B82F6, #8B5CF6, #0D9488);
+    background-size: 300% 300%;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: iconGradientShift 2s ease infinite;
 }
 
 /* Ensure font-weight from class .highlight is preserved but color forces transparent */
@@ -741,7 +753,7 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 900px) {
-    .grid-2 { grid-template-columns: 1fr; }
+    .grid-2, .achievements-grid { grid-template-columns: 1fr; }
     .about-visual { order: -1; }
 }
 
